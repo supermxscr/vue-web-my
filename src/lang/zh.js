@@ -200,7 +200,23 @@ export default {
     couponTime: '卡券有效期',
     couponStatus: '卡券状态',
     receivingAmount: '领取量',
-    nuclearSales: '核销量'
+    nuclearSales: '核销量',
+    gift: '礼品券',
+    discount: '折扣券',
+    fullReduction: '满减券',
+    voucher: '代金券',
+    create: '新建',
+    updata: '编辑',
+    title: '卡券标题',
+    titleAlert: '请输入卡券标题',
+    useDescription: '使用说明',
+    color: '卡券颜色',
+    circulation: '发行总量',
+    circulationInfo: '修改卡券总量时只能增加不能减少,请谨慎设置',
+    circulationAlert: '请输入发行总量',
+    discountAmount: '折扣额度',
+    discountAmountInfo: '请填写1-9.9之前的数字,精确到小数点后1位',
+    discountAmountAlert: '请输入折扣额度'
   },
   theme: {
     change: '换肤',
@@ -220,5 +236,7 @@ export default {
     fixedHeader: '固定 Header',
     sidebarLogo: '侧边栏 Logo'
   },
-  money: '元'
+  money: '元',
+  zhang: '张',
+  zhe: '折'
 }

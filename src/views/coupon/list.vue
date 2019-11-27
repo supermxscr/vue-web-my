@@ -1,26 +1,26 @@
 <template>
   <div class="page">
     <h3>{{ $t('coupon.couponCenter') }}</h3>
-    <div>
-      <div
-        v-for="item in addBtnInfo"
-        :key="item.type"
-        class="addbox"
+
+    <div
+      v-for="item in addBtnInfo"
+      :key="item.type"
+      class="addbox"
+    >
+      <img
+        :src="require('../../static/images/'+item.bgcSrc)"
+        class="addbox-img"
       >
-        <img
-          :src="require('../../static/images/'+item.bgcSrc)"
-          class="addbox-img"
-        >
-        <p class="addbox-name name">{{ item.name }}</p>
-        <p class="addbox-name eg">{{ item.eg }}</p>
-        <p class="addbox-name description">{{ item.description }}</p>
-        <div
-          class="addbtn"
-          :style="'color:'+item.color"
-          @click="actions('add',item.type)"
-        >立即创建</div>
-      </div>
+      <p class="addbox-name name">{{ item.name }}</p>
+      <p class="addbox-name eg">{{ item.eg }}</p>
+      <p class="addbox-name description">{{ item.description }}</p>
+      <div
+        class="addbtn"
+        :style="'color:'+item.color"
+        @click="actions('add',item.type)"
+      >立即创建</div>
     </div>
+
     <el-table
       :key="tableKey"
       v-loading="listLoading"
@@ -80,11 +80,10 @@
       >
         <template slot-scope="{row}">
           {{ row.nickname }}
-          <!-- <svg-icons
+          <svg-icon
             icon-class="edit"
-            class-name="disabled"
             @click="setStock(row.id)"
-          /> -->
+          />
         </template>
       </el-table-column>
       <el-table-column
@@ -160,10 +159,9 @@
 <script>
 import { requestData } from '@/api/api'
 import Pagination from '@/components/Pagination'
-import svgIcons from './svg-icons'
 export default {
   name: 'CouponList',
-  components: { Pagination, svgIcons },
+  components: { Pagination },
   data() {
     return {
       API: {
