@@ -257,7 +257,7 @@ export default {
     },
     // banner图
     productImg(res, file) {
-      this.imageUrl = res.dat
+      this.imageUrl = res.data
     },
     beforeAvatarUpload(file) {
       const isLt2M = file.size / 1024 / 1024 < 2
@@ -324,11 +324,11 @@ export default {
     },
     // 改变分类,查询商品数据
     choseCategory() {
-      this.getProductList('GET', this.API.product, { page: 1,
+      this.getProductList('GET', this.API.product, {        page: 1,
         size: 1000,
         title: null,
         status: null,
-        categoryId: this.category })
+        categoryId: this.category      })
     },
     // 分类下的 商品列表
     getProductList(method, url, data) {
@@ -350,16 +350,16 @@ export default {
         if (res && res.code === 0) {
           this.ruleForm.productPrice = (res.data.price / 100).toFixed(2)
           for (let i = 0; i < this.categoryList.length; i++) {
-            if (res.data.categoryId === this.categoryList[ i ].id) {
-              this.category = this.categoryList[ i ].id
+            if (res.data.categoryId === this.categoryList[i].id) {
+              this.category = this.categoryList[i].id
             }
           }
           console.log(this.category)
-          this.getProductList('GET', this.API.product, { page: 1,
+          this.getProductList('GET', this.API.product, {            page: 1,
             size: 1000,
             title: null,
             status: null,
-            categoryId: this.category })
+            categoryId: this.category          })
         } else {
           this.$message.error(res.data.msg)
         }
@@ -390,7 +390,7 @@ export default {
       }
     },
     submitForm(formName, action) {
-      this.$refs[ formName ].validate((valid) => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           if (action === 'saveAndUp') {
             this.ruleForm.status = 1
@@ -398,7 +398,7 @@ export default {
           if (this.addOrEdit) {
             this.sub('PUT', this.API.banner, this.ruleForm)
           } else {
-            delete this.ruleForm[ 'id' ]
+            delete this.ruleForm['id']
             this.sub('POST', this.API.banner, this.ruleForm)
           }
         } else {
